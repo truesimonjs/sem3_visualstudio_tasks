@@ -10,6 +10,7 @@ namespace Rest_Excercise1_attempt2
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddSingleton<AktieRepository, AktieRepository>();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
