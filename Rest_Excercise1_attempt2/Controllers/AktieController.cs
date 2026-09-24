@@ -5,7 +5,7 @@ using Rest_Excercise1_attempt2.Models;
 
 namespace Rest_Excercise1_attempt2.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class AktieController : ControllerBase
     {
