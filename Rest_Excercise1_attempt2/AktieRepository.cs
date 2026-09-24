@@ -4,20 +4,31 @@ namespace Rest_Excercise1_attempt2
 {
     public class AktieRepository
     {
-        private int nextId = 1;
+        private int nextId = 0;
         private List<Aktie> aktieList = new();
+        public AktieRepository()
+        {
+            const int testDataCount = 3;
+            for (int i = 0; i < testDataCount; i++)
+            {
+                Aktie aktie = new();
+                aktie.Name = $"testAktie{i}";
+                aktie.Price = 10 * i;
+                add(aktie);
+            }
+        }
         public List<Aktie> GetAll()
         {
-            return aktieList;
+            return new List<Aktie>(aktieList);
         }
         public Aktie GetById(int id)
         {
-            return aktieList.Where(Aktie => Aktie.id == id).FirstOrDefault();
+            return aktieList.Where(Aktie => Aktie.Id == id).FirstOrDefault();
             
         }
         public Aktie add (Aktie newAktie)
         {
-            newAktie.id = GetNextId();
+            newAktie.Id = GetNextId();
             aktieList.Add(newAktie);
             return newAktie;
         }
@@ -32,7 +43,8 @@ namespace Rest_Excercise1_attempt2
         {
             Aktie aktie = GetById(id);
             if (aktie == null) return null;
-            //change values here
+            aktie.Price = newValues.Price;
+            aktie.Name = newValues.Name;
             return aktie;
         }
         public int GetNextId()
