@@ -20,6 +20,14 @@ namespace Rest_Excercise1_attempt2.Controllers
         {
             return repo.GetAll();
         }
+        
+        
+        [HttpGet("test")]
+        public IEnumerable<Aktie> GetTest()
+        {
+            return repo.GetAll();
+        }
+        
 
         // GET api/<AktieController>/5
         [HttpGet("{id}")]
